@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,9 @@ namespace Utulek_projekt
 {
     internal class Program
     {
+ zvire_trida
+     
+
         
         static void Main(string[] args)
         {
@@ -50,5 +54,6 @@ namespace Utulek_projekt
             while (volba != 0);
             Console.ReadKey();
         }
+ master
     }
 }
