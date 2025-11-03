@@ -9,7 +9,6 @@ namespace Utulek_projekt
 {
     internal class Program
     {
- zvire_trida
      
 
         
@@ -54,6 +53,5 @@ namespace Utulek_projekt
             while (volba != 0);
             Console.ReadKey();
         }
- master
     }
 }
