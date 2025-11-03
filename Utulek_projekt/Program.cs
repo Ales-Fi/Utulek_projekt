@@ -48,7 +48,7 @@ namespace Utulek_projekt
                 }
             } 
             while (volba != 0);
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
