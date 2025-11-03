@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Utulek_projekt.UI;
 
 namespace Utulek_projekt
 {
@@ -14,7 +15,7 @@ namespace Utulek_projekt
         
         static void Main(string[] args)
         {
-            
+            KonzoleUI konzoleUI = new KonzoleUI();
             int volba;
             do {
                 Console.WriteLine("===== ÚTULEK PRO ZVÍŘATA =====");
@@ -25,6 +26,7 @@ namespace Utulek_projekt
                 {
                     case 1:
                         {
+                            konzoleUI.Nacteni();
                             break;
                         }
                     case 2:
