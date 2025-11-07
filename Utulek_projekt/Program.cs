@@ -21,12 +21,12 @@ namespace Utulek_projekt
                 Console.WriteLine("===== ÚTULEK PRO ZVÍŘATA =====");
                 Console.WriteLine("1) Přidat zvířátko | 2) Vypsat všechna zvířátka | 3) Vyhledat/filtrovat | 4) Označit adopci | 5) Statistiky | 0) Konec");
                 Console.Write("Volba: ");
-                volba = int.Parse(Console.ReadLine());
+                volba = konzoleUI.NacteniVolby();
                 switch (volba)
                 {
                     case 1:
                         {
-                            konzoleUI.Nacteni();
+                            konzoleUI.NacteniInfo();
                             break;
                         }
                     case 2:

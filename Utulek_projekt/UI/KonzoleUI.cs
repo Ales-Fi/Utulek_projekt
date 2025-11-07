@@ -16,7 +16,20 @@ namespace Utulek_projekt.UI
         public string Pohlavi;
         public bool Adoptovano = false;
 
-        public void Nacteni()
+
+        public sbyte NacteniVolby()
+        {
+            if (sbyte.TryParse(Console.ReadLine(), out sbyte volba))
+            {
+                return volba;
+            }
+            else 
+            {
+                return 0;
+            }
+        }
+
+        public void NacteniInfo()
         {
             Console.Write("Zadejte id zvířátka: ");
             if ((int.TryParse(Console.ReadLine(), out int id)) && (id > 0))
