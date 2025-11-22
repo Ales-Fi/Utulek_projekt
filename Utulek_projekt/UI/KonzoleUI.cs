@@ -1,64 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Utulek_projekt.UI
+public class KonzoleUI
 {
-    internal class KonzoleUI
+    public string Jmeno { get; private set; }
+    public string Druh { get; private set; }
+    public int Vek { get; private set; }
+    public string Pohlavi { get; private set; }
+    public DateTime DatumPrijmu { get; private set; }
+    public string ZdravotniStav { get; private set; }
+    public string Poznamka { get; private set; }
+
+    public string VyhledavaciText { get; private set; }
+    public string JmenoProAdopci { get; private set; }
+
+    public int NacteniVolby()
     {
-        public int Id;
-        public string Jmeno;
-        public string Druh;
-        public int Vek;
-        public string Pohlavi;
-        public bool Adoptovano = false;
-
-
-        public sbyte NacteniVolby()
+        while (true)
         {
-            if (sbyte.TryParse(Console.ReadLine(), out sbyte volba))
-            {
-                return volba;
-            }
-            else 
-            {
-                return 0;
-            }
+            string vstup = Console.ReadLine();
+            if (int.TryParse(vstup, out int cislo))
+                return cislo;
+
+            Console.Write("Zadej číslo: ");
         }
+    }
 
-        public void NacteniInfo()
+    public void NacteniInfo()
+    {
+        Console.Write("Jméno: ");
+        Jmeno = Console.ReadLine();
+
+        Console.Write("Druh: ");
+        Druh = Console.ReadLine();
+
+        Console.Write("Věk (číslo): ");
+        Vek = NactiInt();
+
+        Console.Write("Pohlaví: ");
+        Pohlavi = Console.ReadLine();
+
+        Console.Write("Datum příjmu (dd.mm.yyyy): ");
+        DatumPrijmu = NactiDatum();
+
+        Console.Write("Zdravotní stav: ");
+        ZdravotniStav = Console.ReadLine();
+
+        Console.Write("Poznámka (nepovinné): ");
+        Poznamka = Console.ReadLine();
+    }
+
+    public void NacteniVyhledavani()
+    {
+        Console.Write("Zadej jméno nebo druh: ");
+        VyhledavaciText = Console.ReadLine();
+    }
+
+    public void NacteniJmenaProAdopci()
+    {
+        Console.Write("Zadej jméno zvířete k adopci: ");
+        JmenoProAdopci = Console.ReadLine();
+    }
+
+    private int NactiInt()
+    {
+        while (true)
         {
-            Console.Write("Zadejte id zvířátka: ");
-            if ((int.TryParse(Console.ReadLine(), out int id)) && (id > 0))
-            {
-                Id = id;
-            }
-            else
-            {
-                Console.WriteLine("Neplatný vstup pro ID");
-            }
-            Console.Write("Zadejte jméno zvířátka: ");
-            Jmeno = Console.ReadLine();
-            Console.Write("Zadejte druh zvířátka: ");
-            Druh = Console.ReadLine();
-            Console.Write("Zadejte věk zvířátka: ");
-            if ((int.TryParse(Console.ReadLine(), out int vek)) && (vek > 0))
-            {
-                Vek = vek;
-            }
-            else
-            {
-                Console.WriteLine("Neplatný vstup pro věk");
-            }
-            Console.Write("Zadejte pohlaví zvířátka: ");
-            Pohlavi = Console.ReadLine();
-            Adoptovano = false;
-            Console.WriteLine("Zvířátko bylo úspěšně přidáno.");
+            string vstup = Console.ReadLine();
+            if (int.TryParse(vstup, out int cislo))
+                return cislo;
 
-            //přidat do listu zvířátek
+            Console.Write("Zadej platné číslo: ");
+        }
+    }
+
+    private DateTime NactiDatum()
+    {
+        while (true)
+        {
+            string vstup = Console.ReadLine();
+            if (DateTime.TryParse(vstup, out DateTime datum))
+                return datum;
+
+            Console.Write("Zadej platné datum (dd.mm.yyyy): ");
         }
     }
 }
