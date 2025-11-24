@@ -1,59 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using Utulek_projekt.UI;
 
-namespace Utulek_projekt
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-     
+        KonzoleUI ui = new KonzoleUI();
+        Evidence evidence = new Evidence();
 
-        
-        static void Main(string[] args)
+        int volba = -1;
+
+        while (volba != 0)
         {
-            KonzoleUI konzoleUI = new KonzoleUI();
-            int volba;
-            do {
-                Console.WriteLine("===== ÚTULEK PRO ZVÍŘATA =====");
-                Console.WriteLine("1) Přidat zvířátko | 2) Vypsat všechna zvířátka | 3) Vyhledat/filtrovat | 4) Označit adopci | 5) Statistiky | 0) Konec");
-                Console.Write("Volba: ");
-                volba = konzoleUI.NacteniVolby();
-                switch (volba)
-                {
-                    case 1:
-                        {
-                            konzoleUI.NacteniInfo();
-                            break;
-                        }
-                    case 2:
-                        {
-                            break;
-                        }
-                    case 3:
-                        {
-                            break;
-                        }
-                    case 4:
-                        {
-                            break;
-                        }
-                    case 5:
-                        {
-                            break;
-                        }
-                    case 0:
-                        {
-                            Console.WriteLine("Ukončeno...");
-                            break;
-                        }
-                }
-            } 
-            while (volba != 0);
-            Console.ReadKey();
+            Console.WriteLine("===== ÚTULEK PRO ZVÍŘATA =====");
+            Console.WriteLine("1) Přidat zvířátko | 2) Vypsat všechna zvířátka | 3) Vyhledat/filtrovat | 4) Označit adopci | 5) Statistiky | 0) Konec");
+            Console.Write("Volba: ");
+
+            volba = ui.NacteniVolby();
+
+            switch (volba)
+            {
+                case 1:
+                    ui.NacteniInfo();
+                    evidence.PridejZvire(ui);
+                    break;
+
+                case 2:
+                    evidence.VypisZvirata();
+                    break;
+
+                case 3:
+                    ui.NacteniVyhledavani();
+                    evidence.Vyhledat(ui);
+                    break;
+
+                case 4:
+                    ui.NacteniJmenaProAdopci();
+                    evidence.OznacitAdopci(ui);
+                    break;
+
+                case 5:
+                    evidence.Statistic();
+                    break;
+
+                case 0:
+                    Console.WriteLine("Ukončuji program...");
+                    break;
+
+                default:
+                    Console.WriteLine("Neplatná volba!");
+                    break;
+            }
+
+            Console.WriteLine();
         }
     }
 }
